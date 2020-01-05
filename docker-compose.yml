@@ -1,0 +1,70 @@
+version: '3'
+services:
+  backend-nginx:
+    build:
+      context: ./
+      dockerfile: docker/nginx-back.docker
+    ports:
+      - "88:80"
+    depends_on:
+      - php-fpm
+    volumes:
+      - ./backend:/var/www:cached
+  php-fpm:
+    build:
+      context: ./
+      dockerfile: docker/php-fpm.docker
+    depends_on:
+      - mysql
+    volumes:
+      - ./backend:/var/www:cached
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=mysql"
+      - "DB_NAME=lesson"
+      - "DB_USERNAME=lesson"
+      - "DB_PASSWORD=secret"
+  php-cli:
+    build:
+      context: ./
+      dockerfile: docker/php-cli.docker
+    volumes:
+      - ./backend:/var/www:cached
+    depends_on:
+      - mysql
+    working_dir: /var/www
+    tty: true
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=mysql"
+      - "DB_NAME=lesson"
+      - "DB_USERNAME=lesson"
+      - "DB_PASSWORD=secret"
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./storage/docker/mysql:/var/lib/mysql:cached
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_USER=lesson"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_DATABASE=lesson"
+    ports:
+      - "3366:3306"
+  frontend-nginx:
+    build:
+      context: ./
+      dockerfile: docker/nginx-front.docker
+    volumes:
+      - ./frontend:/var/www/frontend
+    depends_on:
+      - backend-nginx
+      - frontend-nodejs
+    ports:
+      - "89:80"
+  frontend-nodejs:
+    image: node:10.11-jessie
+    volumes:
+      - ./frontend:/var/www/frontend
+    working_dir: /var/www/frontend
+    tty: true
