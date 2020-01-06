@@ -66,5 +66,9 @@ services:
     image: node:10.11-jessie
     volumes:
       - ./frontend:/var/www/frontend
-    working_dir: /var/www/frontend
+    working_dir: /var/www/frontend/todo
     tty: true
+    ports:
+      - "4201:4200"
+    command: >
+      npm install -g @angular/cli
