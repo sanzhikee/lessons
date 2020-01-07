@@ -1,6 +1,7 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(200);
+}
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');

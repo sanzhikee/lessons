@@ -55,7 +55,22 @@ class TodoController extends Controller
     public function actionIndex($page, $size)
     {
         return [
-            'data' => TodoService::getTasks($size, $page)
+            'data' => TodoService::getTasks($size, $page),
+            'pagesAmount' => (int)TodoService::getPagesAmount($size)
+        ];
+    }
+    
+    public function actionGetCurrentPage($page, $size)
+    {
+        return [
+            'data' => TodoService::getTasks($size, $page),
+        ];
+    }
+    
+    public function actionGetPagesAmount($page, $size)
+    {
+        return [
+            'pagesAmount' => TodoService::getPagesAmount($size)
         ];
     }
     

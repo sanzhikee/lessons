@@ -69,9 +69,18 @@ class TodoService
     {
         $tasks = Task::find()
             ->limit($size)
-            ->offset($page - 1)
+            ->offset(($page - 1) * $size)
             ->all();
         
         return $tasks;
+    }
+    
+    /**
+     * @param $size
+     * @return float|int
+     */
+    public static function getPagesAmount($size)
+    {
+        return (Task::find()->count() / $size) + 1;
     }
 }

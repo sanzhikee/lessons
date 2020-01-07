@@ -1,5 +1,5 @@
 <div class="container">
-    <form (submit)="todoSubmit();">
+    <form (submit)="todoSubmit(todo.value)">
         <div class="form-group">
             <h1 class="text-center ">Todo App</h1>
             <div class="input-group-prepend">
@@ -14,11 +14,18 @@
                     {{todo.title}}
                     <div class="list-item-buttons">
                         <span (click)="deleteItem(todo.id)" class="delete-btn">delete</span>
-                        <span (click)="completeItem(todo.id)" class="complete-btn">complete</span>
+                        <span (click)="completeItemClick(todo.id)" class="complete-btn">
+                            {{todo.is_completed ? 'incomplete' : 'complete'}}
+                        </span>
                     </div>
                 </li>
             </ul>
         </div>
+        <ul class="pagination">
+            <li class="page-item" *ngFor="let page of makeArray(pagesAmount);" (click)="pageChange(page)">
+                <a class="page-link"> {{page}} </a>
+            </li>
+        </ul>
     </form>
 
 </div>
