@@ -2,37 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aca67f6c-32f1-485a-bc91-beb0e0e8fd21" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/todo/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/e2e/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/tsconfig.spec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/todo/tslint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/service/todo.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/todo/src/app/service/todo.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/todo/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/todo/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/todo/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/todo/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/todo/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/todo/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/todo/src/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+            <state relative-caret-position="538">
+              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -88,10 +64,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="73" selection-end-line="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/src/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2604">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/service/todo.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="543">
+              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -99,11 +102,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+            <state relative-caret-position="285">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="4" column="31" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/todo/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="713">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -127,10 +157,10 @@
       <find>move</find>
       <find>2em</find>
       <find>[</find>
-      <find>todo</find>
       <find>page</find>
       <find>complete</find>
       <find>this.pagesamount</find>
+      <find>todo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,15 +192,19 @@
         <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/frontend/todo/src/index.html" />
-        <option value="$PROJECT_DIR$/frontend/todo/src/app/app.component.css" />
         <option value="$PROJECT_DIR$/frontend/todo/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/docker/nginx/api.conf" />
         <option value="$PROJECT_DIR$/backend/api/web/index.php" />
-        <option value="$PROJECT_DIR$/frontend/todo/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/backend/common/services/TodoService.php" />
         <option value="$PROJECT_DIR$/backend/api/controllers/TodoController.php" />
         <option value="$PROJECT_DIR$/frontend/todo/src/app/service/todo.service.ts" />
         <option value="$PROJECT_DIR$/frontend/todo/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.css" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/app/app.component.css" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/styles.css" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.html" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.ts" />
+        <option value="$PROJECT_DIR$/frontend/todo/src/app/app.component.html" />
       </list>
     </option>
   </component>
@@ -308,6 +342,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lesson3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lesson3" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="todo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="todo-item" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -360,12 +403,20 @@
       <workItem from="1578312940263" duration="3454000" />
       <workItem from="1578398297624" duration="4504000" />
       <workItem from="1578402978618" duration="98000" />
-      <workItem from="1578403100753" duration="1145000" />
+      <workItem from="1578403100753" duration="5049000" />
     </task>
+    <task id="LOCAL-00001" summary="assyl">
+      <created>1578404267636</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578404267637</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18522000" />
+    <option name="totallyTimeSpent" value="22426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -385,7 +436,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Migrations" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.68775934" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.15975104" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32987553" />
       <window_info anchor="bottom" id="TypeScript" order="14" />
@@ -398,25 +449,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="assyl" />
+    <option name="LAST_COMMIT_MESSAGE" value="assyl" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker/nginx-front.docker">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/nginx/front.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/dist/index.html" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e21ae462-eaad-4686-ac0e-3e61cb5ffb00/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker/nginx-back.docker">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -646,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/todo/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -728,37 +758,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/service/todo.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        <state relative-caret-position="543">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="73" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2604">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+        <state relative-caret-position="538">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/todo-item/todo-item.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/todo/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>

@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {TodoService} from "./service/todo.service";
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
     selector: 'app-root',
@@ -7,40 +10,45 @@ import {HttpClient} from "@angular/common/http";
     styleUrls: ['./app.component.css'],
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     todoArray: any = [];
     todo;
     pagesAmount = 1;
+    unsub$ = new Subject();
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private todoService: TodoService) {
     }
 
     ngOnInit() {
-        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
-            if (data.data) {
-                this.todoArray = data.data;
-                if (data.pagesAmount == 1) {
-                    this.pagesAmount = 0;
-                } else {
-                    this.pagesAmount = data.pagesAmount;
+        this.todoService.getTasks(this.pagesAmount)
+            .pipe(takeUntil(this.unsub$))
+            .subscribe((data: any) => {
+                if (data.data) {
+                    this.todoArray = data.data;
+                    if (data.pagesAmount == 1) {
+                        this.pagesAmount = 0;
+                    } else {
+                        this.pagesAmount = data.pagesAmount;
+                    }
                 }
-            }
-        });
+            });
     }
 
 
     addTodo(value) {
         if (value !== "") {
-            this.http.post('http://api.lesson.lcl:88/todo/create', {
-                title: value
-            }).subscribe(update => {
-                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
-                    if (data.data) {
-                        this.todoArray = data.data;
-                        this.pagesAmount = data.pagesAmount;
-                    }
+            this.todoService.todoCreate({ title: value })
+                .pipe(takeUntil(this.unsub$))
+                .subscribe(update => {
+                    this.todoService.todoPages(this.pagesAmount)
+                        .pipe(takeUntil(this.unsub$))
+                        .subscribe(data => {
+                            if (data.data) {
+                                this.todoArray = data.data;
+                                this.pagesAmount = data.pagesAmount;
+                            }
+                        });
                 });
-            });
         } else {
             alert('Field required **')
         }
@@ -49,57 +57,44 @@ export class AppComponent implements OnInit {
 
     /*delete item*/
     deleteItem(id) {
-        for (let i = 0; i < this.todoArray.length; i++) {
-            if (id === this.todoArray[i].id) {
-                this.todo = this.todoArray[i];
-            }
-        }
+        this.todoService.deleteTodo(id)
+            .pipe(takeUntil(this.unsub$))
+            .subscribe(update => {
+                this.getTasks();
+            });
+    }
 
-        this.http.post('http://api.lesson.lcl:88/todo/delete', {
-            id: this.todo.id
-        }).subscribe(update => {
-            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+    getTasks() {
+        this.todoService.getTasks(this.pagesAmount)
+            .pipe(takeUntil(this.unsub$))
+            .subscribe((data: any) => {
                 if (data.data) {
                     this.todoArray = data.data;
                     this.pagesAmount = data.pagesAmount;
                 }
             });
-        });
     }
 
     /*delete item*/
     completeItemClick(id) {
-        for (let i = 0; i < this.todoArray.length; i++) {
-            if (id === this.todoArray[i].id) {
-                this.todo = this.todoArray[i];
-            }
-        }
+        const todo = this.todoArray.find( todo => todo.id === id ); // {id: 1}
+        // const todo = this.todoArray.filter( todo => todo.id === id )[0]; // [{id: 1}]
 
-        this.http.post('http://api.lesson.lcl:88/todo/update', {
-            id: this.todo.id, title: this.todo.title, is_completed: !this.todo.is_completed
-        }).subscribe(update => {
-            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
-                if (data.data) {
-                    this.todoArray = data.data;
-                    this.pagesAmount = data.pagesAmount;
-                }
+        this.todoService.update(todo.id, todo.title, todo.is_completed)
+            .pipe(takeUntil(this.unsub$))
+            .subscribe(update => {
+                this.getTasks();
             });
-        });
     }
 
     // submit Form
     todoSubmit(value: any) {
         if (value !== "") {
-            this.http.post('http://api.lesson.lcl:88/todo/create', {
-                title: value
-            }).subscribe(update => {
-                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
-                    if (data.data) {
-                        this.todoArray = data.data;
-                        this.pagesAmount = data.pagesAmount;
-                    }
+            this.todoService.create(value)
+                .pipe(takeUntil(this.unsub$))
+                .subscribe(update => {
+                    this.getTasks();
                 });
-            });
         } else {
             alert('Field required **')
         }
@@ -110,19 +105,22 @@ export class AppComponent implements OnInit {
     pageChange(page: int) {
         this.pagesAmount = page;
 
-        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
-            if (data.data) {
-                this.todoArray = data.data;
-                this.pagesAmount = data.pagesAmount;
-            }
-        });
+        this.getTasks();
     }
 
     makeArray(pagesAmout: int) {
-        let array = [];
-        for (let i = 1; i <= pagesAmout; i++) {
-            array.push(i);
-        }
-        return array;
+        // let array = [];
+        // for (let i = 1; i <= pagesAmout; i++) {
+        //     array.push(i);
+        // }
+        // return array;
+
+        return new Array(pagesAmout);
+    }
+
+    ngOnDestroy() {
+        this.unsub$.next(true);
+        this.unsub$.unsubscribe();
+        // this.unsub$.complete();
     }
 }

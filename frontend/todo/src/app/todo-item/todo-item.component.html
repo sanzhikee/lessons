@@ -1,0 +1,9 @@
+<li [ngClass]="todo.is_completed ? 'completed' : ''">
+    {{todo.title}}
+    <div class="list-item-buttons">
+        <span (click)="delete.emit(todo.id)" class="delete-btn">delete</span>
+        <span (click)="complete.emit(todo.id)" class="complete-btn">
+            {{todo.is_completed ? 'incomplete' : 'complete'}}
+        </span>
+    </div>
+</li>
