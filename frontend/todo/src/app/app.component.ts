@@ -102,9 +102,12 @@ export class AppComponent implements OnInit, OnDestroy {
         return false;
     }
 
+<<<<<<< HEAD
     pageChange(page: number) {
+=======
+    pageChange(page: any) {
+>>>>>>> 5a32c6f2dce8a544fa62be7ceade2f67de93c511
         this.pagesAmount = page;
-
         this.getTasks();
     }
 
