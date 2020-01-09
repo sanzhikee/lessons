@@ -63,9 +63,10 @@ services:
     ports:
       - "89:80"
   frontend-nodejs:
-    image: node:10.11-jessie
+    image: node:10.11
     volumes:
       - ./frontend:/var/www/frontend
+      - /var/www/frontend/todo/node_modules
     working_dir: /var/www/frontend/todo
     tty: true
     ports:

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
             if (data.data) {
                 this.todoArray = data.data;
                 if (data.pagesAmount == 1) {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
             this.http.post('http://api.lesson.lcl:88/todo/create', {
                 title: value
             }).subscribe(update => {
-                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
                     if (data.data) {
                         this.todoArray = data.data;
                         this.pagesAmount = data.pagesAmount;
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
         this.http.post('http://api.lesson.lcl:88/todo/delete', {
             id: this.todo.id
         }).subscribe(update => {
-            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
                 if (data.data) {
                     this.todoArray = data.data;
                     this.pagesAmount = data.pagesAmount;
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
         this.http.post('http://api.lesson.lcl:88/todo/update', {
             id: this.todo.id, title: this.todo.title, is_completed: !this.todo.is_completed
         }).subscribe(update => {
-            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+            this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
                 if (data.data) {
                     this.todoArray = data.data;
                     this.pagesAmount = data.pagesAmount;
@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
             this.http.post('http://api.lesson.lcl:88/todo/create', {
                 title: value
             }).subscribe(update => {
-                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+                this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
                     if (data.data) {
                         this.todoArray = data.data;
                         this.pagesAmount = data.pagesAmount;
@@ -107,10 +107,10 @@ export class AppComponent implements OnInit {
         return false;
     }
 
-    pageChange(page: int) {
+    pageChange(page: any) {
         this.pagesAmount = page;
 
-        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe(data => {
+        this.http.get('http://api.lesson.lcl:88/todo/index?page=' + this.pagesAmount + '&size=5', {}).subscribe((data:any) => {
             if (data.data) {
                 this.todoArray = data.data;
                 this.pagesAmount = data.pagesAmount;
@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
         });
     }
 
-    makeArray(pagesAmout: int) {
+    makeArray(pagesAmout: any) {
         let array = [];
         for (let i = 1; i <= pagesAmout; i++) {
             array.push(i);
