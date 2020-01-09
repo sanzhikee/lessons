@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

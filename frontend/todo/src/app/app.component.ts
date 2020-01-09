@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 .subscribe(update => {
                     this.todoService.todoPages(this.pagesAmount)
                         .pipe(takeUntil(this.unsub$))
-                        .subscribe(data => {
+                        .subscribe((data: any) => {
                             if (data.data) {
                                 this.todoArray = data.data;
                                 this.pagesAmount = data.pagesAmount;
@@ -102,20 +102,10 @@ export class AppComponent implements OnInit, OnDestroy {
         return false;
     }
 
-    pageChange(page: int) {
+    pageChange(page: number) {
         this.pagesAmount = page;
 
         this.getTasks();
-    }
-
-    makeArray(pagesAmout: int) {
-        // let array = [];
-        // for (let i = 1; i <= pagesAmout; i++) {
-        //     array.push(i);
-        // }
-        // return array;
-
-        return new Array(pagesAmout);
     }
 
     ngOnDestroy() {
