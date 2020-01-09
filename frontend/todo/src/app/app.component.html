@@ -10,20 +10,17 @@
         </div>
         <div class="data">
             <ul class="list-unstyled">
-                <li *ngFor="let todo of todoArray" [ngClass]="todo.is_completed ? 'completed' : ''">
-                    {{todo.title}}
-                    <div class="list-item-buttons">
-                        <span (click)="deleteItem(todo.id)" class="delete-btn">delete</span>
-                        <span (click)="completeItemClick(todo.id)" class="complete-btn">
-                            {{todo.is_completed ? 'incomplete' : 'complete'}}
-                        </span>
-                    </div>
-                </li>
+                <app-todo-item
+                        *ngFor="let todoItem of todoArray"
+                        [todo]="todoItem"
+                        (delete)="deleteItem($event)"
+                        (complete)="completeItemClick($event)"
+                ></app-todo-item>
             </ul>
         </div>
         <ul class="pagination">
-            <li class="page-item" *ngFor="let page of makeArray(pagesAmount);" (click)="pageChange(page)">
-                <a class="page-link"> {{page}} </a>
+            <li class="page-item" *ngFor="let page of makeArray(pagesAmount); let i=index" (click)="pageChange(i + 1)">
+                <a class="page-link"> {{i + 1}} </a>
             </li>
         </ul>
     </form>
