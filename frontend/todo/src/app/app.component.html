@@ -1,12 +1,7 @@
 <div class="container">
-    <form (submit)="todoSubmit(todo.value)">
+    <form [formGroup]="form" (ngSubmit)="addTodo()">
         <div class="form-group">
-            <h1 class="text-center ">Todo App</h1>
-            <div class="input-group-prepend">
-                <input type="text" #todo class="form-control" placeholder="Add Todo" name="todo" ngModel>
-                <span class="input-group-text" (click)="addTodo(todo.value)">
-				<i class="material-icons">add</i></span>
-            </div>
+            <app-todo-field [formFromParent]="form"></app-todo-field>
         </div>
         <div class="data">
             <ul class="list-unstyled">

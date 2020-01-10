@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {TodoService} from "./service/todo.service";
-import {takeUntil} from "rxjs/operators";
-import {Subject} from "rxjs";
+import {debounceTime, distinctUntilChanged, takeUntil} from "rxjs/operators";
+import {pipe, Subject} from "rxjs";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-root',
@@ -15,8 +16,14 @@ export class AppComponent implements OnInit, OnDestroy {
     todo;
     pagesAmount = 1;
     unsub$ = new Subject();
+    form: FormGroup;
 
     constructor(private http: HttpClient, private todoService: TodoService) {
+        this.form = new FormGroup({
+            inputControl: new FormControl(''),
+            id: new FormControl(''),
+            state: new FormControl('')
+        });
     }
 
     ngOnInit() {
@@ -35,7 +42,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
 
-    addTodo(value) {
+    addTodo() {
+        const value = this.form.value.inputControl;
         if (value !== "") {
             this.todoService.todoCreate({ title: value })
                 .pipe(takeUntil(this.unsub$))
@@ -47,6 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
                                 this.todoArray = data.data;
                                 this.pagesAmount = data.pagesAmount;
                             }
+                            this.form.reset();
                         });
                 });
         } else {
@@ -102,11 +111,7 @@ export class AppComponent implements OnInit, OnDestroy {
         return false;
     }
 
-<<<<<<< HEAD
     pageChange(page: number) {
-=======
-    pageChange(page: any) {
->>>>>>> 5a32c6f2dce8a544fa62be7ceade2f67de93c511
         this.pagesAmount = page;
         this.getTasks();
     }

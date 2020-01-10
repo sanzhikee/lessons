@@ -1,0 +1,14 @@
+<h1 class="text-center ">Todo App</h1>
+<div class="input-group-prepend" [formGroup]="formFromParent">
+    <input
+            type="text"
+            class="form-control"
+            placeholder="Add Todo"
+            name="todo"
+            formControlName="inputControl"
+    />
+    <button class="input-group-text" type="submit">
+        <i class="material-icons">add</i>
+    </button>
+</div>
+

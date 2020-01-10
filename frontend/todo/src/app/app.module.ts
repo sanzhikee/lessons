@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { TodoFieldComponent } from './todo-field/todo-field.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
-    PaginationComponent
+    PaginationComponent,
+    TodoFieldComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
