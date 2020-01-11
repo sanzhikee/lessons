@@ -1,0 +1,13 @@
+<ActionBar title="lesson.lcl" class="action-bar">
+</ActionBar>
+
+<GridLayout class="page">
+    <ListView [items]="todoArray" class="list-group">
+        <ng-template let-item="item">
+                <Label [text]="item.title"
+                       [className]="item.is_completed ? 'list-group-item completed' : 'list-group-item incomplete'"
+                       (tap)="onTodoTap(item)"
+                ></Label>
+        </ng-template>
+    </ListView>
+</GridLayout>

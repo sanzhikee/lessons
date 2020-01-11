@@ -96,21 +96,6 @@ export class AppComponent implements OnInit, OnDestroy {
             });
     }
 
-    // submit Form
-    todoSubmit(value: any) {
-        if (value !== "") {
-            this.todoService.create(value)
-                .pipe(takeUntil(this.unsub$))
-                .subscribe(update => {
-                    this.getTasks();
-                });
-        } else {
-            alert('Field required **')
-        }
-
-        return false;
-    }
-
     pageChange(page: number) {
         this.pagesAmount = page;
         this.getTasks();

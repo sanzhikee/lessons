@@ -40,6 +40,8 @@ services:
       - "DB_NAME=lesson"
       - "DB_USERNAME=lesson"
       - "DB_PASSWORD=secret"
+    command: >
+      bash -c "composer install && php init --env=Development --overwrite=n  && php yii migrate --interactive=0"
   mysql:
     image: mysql:5.7
     volumes:
@@ -66,10 +68,9 @@ services:
     image: node:10.11
     volumes:
       - ./frontend:/var/www/frontend
-      - /var/www/frontend/todo/node_modules
     working_dir: /var/www/frontend/todo
     tty: true
     ports:
       - "4201:4200"
     command: >
-      npm install -g @angular/cli
+      bash -c "NG_CLI_ANALYTICS=N npm install && npm run build"
